@@ -2,7 +2,6 @@ import Image from 'next/image.js';
 import { IMAGE_BASE_URL } from '../../constants/constants.js';
 
 const SignItem = ({ sign }) => {
-  // Определяем ключи для дополнительных изображений
   const imageKeys = [
     'img1src',
     'img2src',
@@ -31,7 +30,6 @@ const SignItem = ({ sign }) => {
       <h3>{sign.title}</h3>
       <p data-id={sign.id} dangerouslySetInnerHTML={{ __html: sign.content }} />
 
-      {/* Рендерим дополнительные изображения, если они есть */}
       <div
         style={{
           display: 'flex',

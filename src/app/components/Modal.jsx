@@ -49,11 +49,11 @@ const modalOverlay = {
   left: 0,
   right: 0,
   bottom: 0,
-  background: 'rgba(0, 0, 0, 0.7)', // Увеличьте непрозрачность для лучшей видимости
+  background: 'rgba(0, 0, 0, 0.7)',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  zIndex: 1000, // Убедитесь, что это значение выше, чем у других элементов на странице
+  zIndex: 1000,
 };
 
 const modalContent = {
@@ -63,16 +63,10 @@ const modalContent = {
   maxWidth: '500px',
   width: '90%',
   position: 'relative',
-  zIndex: 1001, // Убедитесь, что контент модалки выше, чем overlay
-  overflowY: 'auto', // Добавлено прокручивание по вертикали
-  maxHeight: '80vh', // Ограничиваем максимальную высоту модалки
+  zIndex: 1001,
+  overflowY: 'auto',
+  maxHeight: '80vh',
 };
-
-// const modalImage = {
-//   maxWidth: '100%',
-//   height: 'auto',
-//   marginBottom: '20px',
-// };
 
 const closeButton = {
   position: 'absolute',

@@ -11,7 +11,7 @@ const AllSignsList = ({ allSigns }) => {
               <SignItem key={index} sign={sign} />
             ))
           ) : (
-            <p>Нет знаков для отображения.</p>
+            <p>Немає знаків для відображення.</p>
           )}
         </div>
       ))}

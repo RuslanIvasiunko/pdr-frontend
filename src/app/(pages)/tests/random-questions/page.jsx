@@ -64,7 +64,7 @@ const RandomQuestionsPage = () => {
       <SelectSectionsTests
         selectedSections={selectedSections}
         onSelectedSectionsUpdate={handleSelectedSectionsUpdate}
-        onTitlesLoad={setAllTitles} // передаем функцию для загрузки всех заголовков
+        onTitlesLoad={setAllTitles} 
       />
       {showModal && (
         <WarningModal

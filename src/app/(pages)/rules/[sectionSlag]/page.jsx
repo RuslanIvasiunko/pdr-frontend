@@ -41,11 +41,10 @@ export default function Page() {
     dispatch(apiSectionOfRules(sectionSlag)).then(() => setLoading(false));
   }, [dispatch, sectionSlag]);
 
-  // useEffect для автоматического открытия модалки после загрузки данных
   useEffect(() => {
     if (isModalRequested && modalData && Object.keys(modalData).length > 0) {
       setIsOpen(true);
-      setIsModalRequested(false); // Сбрасываем после открытия модалки
+      setIsModalRequested(false);
     }
   }, [modalData, isModalRequested]);
 
@@ -96,7 +95,7 @@ export default function Page() {
             ) : safeAllSigns.length > 0 ? (
               <AllSignsList allSigns={safeAllSigns} />
             ) : (
-              <p>Нет данных для отображения.</p>
+              <p>Немає даних для відображення.</p>
             )}
           </div>
         ) : (

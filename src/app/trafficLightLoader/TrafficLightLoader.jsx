@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import './TrafficLightLoader.css'; // Убедитесь, что этот файл существует и стилизует ваш лоадер
+import './TrafficLightLoader.css';
 
 const TrafficLightLoader = () => {
   const [activeLight, setActiveLight] = useState('red');
@@ -14,9 +14,9 @@ const TrafficLightLoader = () => {
         if (prev === 'green') return 'yellow';
         return 'red';
       });
-    }, 500); // Меняет цвет каждую секунду
+    }, 500);
 
-    return () => clearInterval(interval); // Очищает интервал при размонтировании
+    return () => clearInterval(interval);
   }, []);
 
   return (

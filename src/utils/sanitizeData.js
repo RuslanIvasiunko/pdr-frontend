@@ -16,7 +16,7 @@ export const sanitizeContent = section => {
     ? section.content.map(item => ({
         number: item.number,
         text: DOMPurify.sanitize(item.text),
-        ...addSanitizedImages(item), // Добавляем изображения к каждому объекту
+        ...addSanitizedImages(item),
       }))
     : [];
 };

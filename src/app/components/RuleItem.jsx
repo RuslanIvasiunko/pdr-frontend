@@ -35,7 +35,7 @@ const RuleItem = ({ item }) => {
           item[key] ? (
             <Image
               key={index}
-              src={`${IMAGE_BASE_URL}${item[key]}`} // Добавьте базовый URL к пути изображения
+              src={`${IMAGE_BASE_URL}${item[key]}`}
               alt={`Image ${index + 1}`}
               width={800}
               height={800}

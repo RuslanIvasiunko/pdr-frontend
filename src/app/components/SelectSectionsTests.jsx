@@ -26,7 +26,7 @@ const SelectSectionsTests = ({
 
   useEffect(() => {
     if (titles.length) {
-      onTitlesLoad(titles); // Загружаем все titles в RandomQuestionsPage
+      onTitlesLoad(titles);
     }
   }, [titles, onTitlesLoad]);
 

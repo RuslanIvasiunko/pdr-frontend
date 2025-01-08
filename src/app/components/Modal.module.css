@@ -9,11 +9,11 @@
     0,
     0,
     0.7
-  ); /* Увеличьте непрозрачность для лучшей видимости */
+  );
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Убедитесь, что это значение выше, чем у других элементов на странице */
+  z-index: 1000;
 }
 
 .modalContent = {
@@ -23,7 +23,7 @@
   max-width: 500px;
   width: 90%;
   position: relative;
-  z-index: 1001; /* Убедитесь, что контент модалки выше, чем overlay */
+  z-index: 1001; 
 }
 
 .modalImage = {
