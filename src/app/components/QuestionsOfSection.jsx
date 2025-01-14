@@ -11,18 +11,18 @@ const QuestionsOfSection = ({ sectionTests }) => {
   useEffect(() => {
     sectionTests?.content
       ? setQuestions(
-          sectionTests.content.map((question) => ({
+          sectionTests.content.map(question => ({
             ...question,
-            buttoncolor: '#F5F5F5',
+            buttonColor: '#F5F5F5',
             selectedAnswer: null,
             isCorrect: null,
-          }))
+          })),
         )
       : setQuestions([]);
   }, [sectionTests]);
 
   const getButtonStyles = useMemo(() => {
-    return(index) => {
+    return index => {
       const isActive = index === currentQuestionIndex;
       const question = questions[index];
 
@@ -30,13 +30,13 @@ const QuestionsOfSection = ({ sectionTests }) => {
         question?.isCorrect === true
           ? '#90EE90'
           : question?.isCorrect === false
-          ? '#FF6347'
-          : '#F5F5F5';
+            ? '#FF6347'
+            : '#F5F5F5';
 
       return {
         padding: '10px 20px',
         fontSize: '16px',
-        backgroundColor: isActive ? backgroundColor : backgroundColor, 
+        backgroundColor: isActive ? backgroundColor : backgroundColor,
         border: isActive ? '2px solid black' : 'none',
         borderRadius: '4px',
         cursor: isActive ? 'default' : 'pointer',
@@ -46,12 +46,12 @@ const QuestionsOfSection = ({ sectionTests }) => {
     };
   }, [currentQuestionIndex, questions]);
 
-  const handleQuestionButtonClick = (index) => {
+  const handleQuestionButtonClick = index => {
     setCurrentQuestionIndex(index);
   };
 
   const handleAnswerClick = (questionIndex, answerId) => {
-    setQuestions((prevQuestions) =>
+    setQuestions(prevQuestions =>
       prevQuestions.map((q, index) => {
         if (index === questionIndex) {
           return {
@@ -61,7 +61,7 @@ const QuestionsOfSection = ({ sectionTests }) => {
           };
         }
         return q;
-      })
+      }),
     );
   };
 

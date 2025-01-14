@@ -29,11 +29,11 @@ export const apiTitlesOfSectionsTests = createAsyncThunk(
 );
 
 export const apiSectionDefaultTests = createAsyncThunk(
-  'sectionDefaultTests/getdefaultTests',
+  'sectionDefaultTests/getDefaultTests',
   async (sectionSlag, thunkApi) => {
     try {
       const { data } = await instance(`/api/tests/sections/${sectionSlag}`);
-      return  data;
+      return data;
     } catch (e) {
       return thunkApi.rejectWithValue(e.message);
     }
@@ -41,7 +41,7 @@ export const apiSectionDefaultTests = createAsyncThunk(
 );
 
 export const apiSectionRandomTests = createAsyncThunk(
-  'sectionRendomTests/getRendomTests',
+  'sectionRandomTests/getRandomTests',
   async (sectionSlag, thunkApi) => {
     try {
       const { data } = await instance(

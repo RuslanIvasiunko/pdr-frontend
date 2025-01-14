@@ -8,14 +8,12 @@ import Timer from '../../../../../components/Timer.jsx';
 
 export default function RandomPage() {
   const { sectionSlag } = useParams();
-  const timerHeader = "Загальний час:";
+  const timerHeader = 'Загальний час:';
 
   return (
     <div>
       <TypesOfTests />
-      <Timer 
-        timerHeader={timerHeader}
-      />
+      <Timer timerHeader={timerHeader} />
       <SectionRandomTests sectionSlag={sectionSlag} />
     </div>
   );

@@ -25,11 +25,9 @@ const RandomQuestionsPage = () => {
       : setShowModal(true);
   };
 
-  // Функция для выбора всех тем
   const handleButtonAllSectionsClick = () => {
     const allSlugs = allTitles.map(title => title.slag);
     setSelectedSections(allSlugs);
-    // console.log("Выбраны все темы:", allSlugs);
   };
 
   const handleButtonsResetClick = () => {
@@ -64,7 +62,7 @@ const RandomQuestionsPage = () => {
       <SelectSectionsTests
         selectedSections={selectedSections}
         onSelectedSectionsUpdate={handleSelectedSectionsUpdate}
-        onTitlesLoad={setAllTitles} 
+        onTitlesLoad={setAllTitles}
       />
       {showModal && (
         <WarningModal

@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image.js';
-import { IMAGE_BASE_URL } from '../../constants/constants.js'; // Импортируйте базовый URL
+import { IMAGE_BASE_URL } from '../../constants/constants.js';
 
 const RuleItem = ({ item }) => {
   const imageKeys = [

@@ -84,7 +84,7 @@ export default function Page() {
       </div>
       <div style={{ flex: 3 }}>
         {loading ? (
-          <p>Загрузка...</p>
+          <p>Завантаження...</p>
         ) : section ? (
           <div>
             <h1>{section.title}</h1>
@@ -102,7 +102,6 @@ export default function Page() {
           <p>Розділ не знайдено</p>
         )}
       </div>
-      {/* Модальное окно */}
       <Modal isOpen={isOpen} onClose={handleCloseModal} data={safeModalData} />
     </div>
   );

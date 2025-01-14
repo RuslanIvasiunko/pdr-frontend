@@ -32,8 +32,8 @@ const Timer = ({ timerHeader, isActive }) => {
   return (
     <div
       style={{
-        display: "flex",
-        gap: "5px",
+        display: 'flex',
+        gap: '5px',
       }}
     >
       <p>{timerHeader}</p>

@@ -6,7 +6,7 @@ import { selectSectionRandomTests } from '../redux/tests/selectors.js';
 import SectionTests from './SectionTests.jsx';
 
 const SectionRandomTests = ({ sectionSlag }) => {
-const isRandom = true;
+  const isRandom = true;
   return (
     <div>
       <SectionTests
