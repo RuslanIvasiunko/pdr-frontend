@@ -1,5 +1,6 @@
 import Image from 'next/image.js';
-import { IMAGE_BASE_URL } from '../../constants/constants.js';
+
+import { IMAGE_BASE_URL } from '@shared/constants/constants';
 
 const SignItem = ({ sign }) => {
   const imageKeys = [

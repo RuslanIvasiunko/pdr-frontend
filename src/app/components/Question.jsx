@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 
-import Timer from './Timer.jsx';
+import { addError } from '@/utils/errors.js';
+import Timer from './Timer';
 
 const Question = ({
   questions,
@@ -15,7 +16,21 @@ const Question = ({
   const isActive = questions[questionIndex].selectedAnswer === null;
 
   const handleAnswerAndNext = selectedAnswerId => {
+    const currentQuestion = questions[questionIndex];
+    const isCorrect = selectedAnswerId === currentQuestion.correctAnswerId;
+
     handleAnswerClick(questionIndex, selectedAnswerId);
+
+    if (!isCorrect) {
+      const errorQuestion = {
+        id: currentQuestion.number,
+        question: currentQuestion.question,
+        answers: currentQuestion.answers,
+        correctAnswerId: currentQuestion.correctAnswerId,
+      };
+
+      addError(errorQuestion);
+    }
     setIsAnswered(true);
 
     setTimeout(() => {

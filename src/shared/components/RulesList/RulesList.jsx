@@ -1,4 +1,4 @@
-import RuleItem from './RuleItem.jsx';
+import { RuleItem } from '@shared/components/RuleItem';
 
 export const RulesList = ({ data }) => {
   return (

@@ -1,6 +1,7 @@
-import React from 'react';
 import Image from 'next/image.js';
+
 import { IMAGE_BASE_URL } from '../../constants/constants.js';
+import { renderHTML } from '@/utils/renderHtml.js';
 
 const RuleItem = ({ item }) => {
   const imageKeys = [
@@ -12,16 +13,17 @@ const RuleItem = ({ item }) => {
     'img6src',
     'img7src',
   ];
+  const safeText = item.text ? renderHTML(item.text) : null;
 
   return (
-    <div key={item.number} style={{ marginBottom: '20px' }}>
+    <div style={{ marginBottom: '20px' }}>
       {item.number.charAt(0) !== '~' ? (
         <div>
           <h3>{item.number}</h3>
-          <p dangerouslySetInnerHTML={{ __html: item.text }} />
+          <div>{safeText}</div>
         </div>
       ) : (
-        <p dangerouslySetInnerHTML={{ __html: item.text }} />
+        <div>{safeText}</div>
       )}
       <div
         style={{

@@ -17,7 +17,16 @@ const SectionTests = ({ sectionSlag, operation, selector, isRandom }) => {
       dispatch(clearSectionRandom());
     }
     dispatch(operation(sectionSlag));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, sectionSlag, isRandom]);
+
+  if (!sectionTests) {
+    return <p>Loader...</p>;
+  }
+
+  if (!sectionTests.content || sectionTests.content.length === 0) {
+    return <p>Питання на цю тему тимчасово не доступні.</p>;
+  }
 
   return (
     <div>

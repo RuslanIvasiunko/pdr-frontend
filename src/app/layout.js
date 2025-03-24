@@ -1,25 +1,16 @@
-'use client';
+// import React, { isValidElement } from 'react';
 
-import { Provider } from 'react-redux';
+import { Layout } from '@/shared/components/Layout';
 
-import Header from './components/Header.jsx';
 import './globals.css';
-// import { PersistGate } from 'redux-persist/integration/react';
-import {
-  // persistor,
-  store,
-} from './redux/store.js';
+import { Modal } from '@/shared/components/Modal';
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="uk">
       <body>
-        <Provider store={store}>
-          {/* <PersistGate persistor={persistor}> */}
-          <Header />
-          {children}
-          {/* </PersistGate> */}
-        </Provider>
+        <Layout>{children}</Layout>
+        <Modal />
       </body>
     </html>
   );

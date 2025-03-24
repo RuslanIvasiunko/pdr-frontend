@@ -7,7 +7,7 @@ import Question from './Question.jsx';
 const QuestionsOfSection = ({ sectionTests }) => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-
+  const sectionTitle = sectionTests.title || 'Робота над помилками';
   useEffect(() => {
     sectionTests?.content
       ? setQuestions(
@@ -69,7 +69,7 @@ const QuestionsOfSection = ({ sectionTests }) => {
     <div>
       {sectionTests && (
         <>
-          <h2>{sectionTests.title}</h2>
+          <h2>{sectionTitle}</h2>
           <ul
             style={{
               display: 'flex',

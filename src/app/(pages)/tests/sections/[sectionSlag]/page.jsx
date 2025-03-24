@@ -1,9 +1,10 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import SectionDefaultTests from '../../../../components/SectionDefaulfTests.jsx';
+
 import Timer from '../../../../components/Timer.jsx';
 import TypesOfTests from '../../../../components/TypesOfTests.jsx';
+import SectionDefaultTests from '@/app/components/SectionDefaultTests.jsx';
 
 export default function SectionPage() {
   const { sectionSlag } = useParams();
