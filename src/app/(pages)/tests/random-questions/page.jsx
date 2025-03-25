@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import SelectSectionsTests from '../../../components/SelectSectionsTests.jsx';
 import TypesOfTests from '../../../components/TypesOfTests.jsx';
-import WarningModal from '../../../components/WarningModal.jsx';
+import WarningModal from '../../../../shared/components/WarningModal/WarningModal.jsx';
 import { apiRandomQuestions } from '../../../redux/tests/operations.js';
 
 const RandomQuestionsPage = () => {

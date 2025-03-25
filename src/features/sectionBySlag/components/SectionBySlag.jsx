@@ -7,7 +7,7 @@ import s from './styles.module.scss';
 import { notFound } from 'next/navigation';
 
 const SectionBySlag = async ({ section }) => {
-  if (!section) return notFound(); // Показываем страницу 404, если данных нет
+  if (!section) return notFound();
   // console.log('section content:', section.content);
   return (
     <div style={{ display: 'flex' }}>
