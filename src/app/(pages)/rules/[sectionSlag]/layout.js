@@ -62,7 +62,7 @@ export default function RulesLayout({ children }) {
   const handleCloseModal = () => {
     setModal(null);
 
-    router.push(pathname, { scroll: false });
+    router.replace(pathname, { scroll: false });
   };
 
   useModalClose({ modal, handleCloseModal, modalRef });

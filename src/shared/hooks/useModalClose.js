@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 const useModalClose = ({ modal, handleCloseModal, modalRef }) => {
   useEffect(() => {
     if (!modal || !modalRef?.current) return;
+
     const handleKeyDown = e => {
       if (e.key === 'Escape') {
         handleCloseModal();
