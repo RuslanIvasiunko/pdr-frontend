@@ -1,8 +1,13 @@
 import Link from 'next/link';
 
-import s from './styles.module.scss';
+import { rulesApi } from '@/shared/services';
 
-const TitlesOfSectionsRules = ({ sections }) => {
+import s from './styles.module.scss';
+import { notFound } from 'next/navigation';
+
+export default async function TitlesOfSectionsRules() {
+  const sections = await rulesApi.getTitlesOfSections();
+  if (!sections) return notFound();
   return (
     <div>
       <Link href="/rules">Зміст</Link>
@@ -20,9 +25,9 @@ const TitlesOfSectionsRules = ({ sections }) => {
       </ul>
     </div>
   );
-};
+}
 
-export default TitlesOfSectionsRules;
+// export default TitlesOfSectionsRules;
 
 // import Link from 'next/link.js';
 
