@@ -1,9 +1,15 @@
 'use client';
 
-const RuleInfoModal = ({ slag, number, coords, modalRef, onClose }) => {
+const RuleInfoModal = ({
+  slag,
+  number,
+  coords,
+  modalRef,
+  handleCloseModal,
+}) => {
   return (
     <div
-      ref={modalRef} // Добавляем ref для получения размеров модалки
+      ref={modalRef}
       style={{
         position: 'absolute',
         top: coords.y,
@@ -12,11 +18,10 @@ const RuleInfoModal = ({ slag, number, coords, modalRef, onClose }) => {
         padding: '10px',
         borderRadius: '8px',
         boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
-        minWidth: '150px', // Минимальная ширина
-        maxWidth: '600px', // Максимальная ширина
-        maxHeight: '350px', // Ограничиваем высоту
-        overflowY: 'auto', // Если контент слишком длинный — скролл
-        wordWrap: 'break-word', // Перенос длинных слов
+        minWidth: '150px',
+        maxWidth: '600px',
+        overflowY: 'auto',
+        wordWrap: 'break-word',
       }}
     >
       <button
@@ -29,7 +34,7 @@ const RuleInfoModal = ({ slag, number, coords, modalRef, onClose }) => {
           border: 'none',
           cursor: 'pointer',
         }}
-        onClick={onClose} // Закрытие по клику на крестик
+        onClick={handleCloseModal}
       >
         ❌
       </button>

@@ -1,13 +1,17 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
-import RuleInfoModal from './modal/rules-info/page';
+import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState, useRef, useLayoutEffect } from 'react';
+
+import useModalClose from '@/shared/hooks/useModalClose';
+import RuleInfoModal from './modal/rules-info/page';
 
 export default function RulesLayout({ children }) {
   const [modal, setModal] = useState(null);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const modalRef = useRef(null); // Для доступа к модалке
+  const modalRef = useRef(null);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const searchParams = useSearchParams();
   const slag = searchParams.get('slag');
@@ -18,17 +22,14 @@ export default function RulesLayout({ children }) {
     setModal(modalParam);
   }, [searchParams]);
 
-  // Обработчик клика
   const handleClick = e => {
     const padding = 10;
     let x = e.pageX + padding;
-    let y = e.pageY + padding + 3; // Смещаем вниз для клика
+    let y = e.pageY + padding + 3;
 
-    // Сохраняем начальные координаты
     setCoords({ x, y });
   };
 
-  // useLayoutEffect для вычисления размеров модалки после рендера
   useLayoutEffect(() => {
     if (modal && modalRef.current) {
       const modalElement = modalRef.current;
@@ -36,31 +37,35 @@ export default function RulesLayout({ children }) {
       const modalHeight = modalElement.offsetHeight;
       let { x, y } = coords;
 
-      // Сдвигаем модалку так, чтобы её центр был на месте клика
-      x -= modalWidth / 2; // Смещаем по X, чтобы центр модалки был в точке клика
+      x -= modalWidth / 2;
 
-      // Проверяем границы окна по X
       if (x + modalWidth > window.innerWidth) {
         x = window.innerWidth - modalWidth - 10;
       }
       if (x < 0) {
-        x = 5; // Обеспечиваем, чтобы модалка не выходила за левую границу
+        x = 5;
       }
 
-      // Смещаем модалку чуть ниже точки клика, не слишком сильно
-      y += 5; // Отступ от клика для вертикального смещения
+      y += 5;
 
-      // Проверяем границы окна по Y
       if (y + modalHeight > window.innerHeight) {
         y = window.innerHeight - modalHeight - 10;
       }
       if (y < 0) {
-        y = 10; // Обеспечиваем, чтобы модалка не выходила за верхнюю границу
+        y = 10;
       }
 
       setCoords({ x, y });
     }
-  }, [modal]); // Теперь зависимость от coords (для корректного смещения модалки)
+  }, [modal]);
+
+  const handleCloseModal = () => {
+    setModal(null);
+
+    router.push(pathname, { scroll: false });
+  };
+
+  useModalClose({ modal, handleCloseModal, modalRef });
 
   return (
     <div onClick={handleClick}>
@@ -70,7 +75,8 @@ export default function RulesLayout({ children }) {
           slag={slag}
           number={number}
           coords={coords}
-          modalRef={modalRef} // Передаем ref в модалку
+          modalRef={modalRef}
+          handleCloseModal={handleCloseModal}
         />
       )}
     </div>
