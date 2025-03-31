@@ -6,7 +6,6 @@ export const renderHTML = text => {
     replace: domNode => {
       if (domNode.name === 'a') {
         if (domNode.attribs['data-modal'] === 'true') {
-          // Для модальных ссылок
           return (
             <Link
               href={domNode.attribs['href']}
@@ -22,15 +21,14 @@ export const renderHTML = text => {
             </Link>
           );
         } else {
-          // Для обычных ссылок
           return (
             <a
               href={domNode.attribs['href']}
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                color: '#0000EE', // стандартный цвет для ссылок
-                textDecoration: 'underline',
+                color: '#0000EE',
+                textDecoration: 'none',
               }}
             >
               {domNode.children.map(child => child.data).join('')}

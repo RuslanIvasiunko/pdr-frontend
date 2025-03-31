@@ -1,15 +1,13 @@
 import { SectionBySlag } from '@/features/sectionBySlag';
 import { TitlesOfSectionsRules } from '@/features/titlesOfSectionsRules';
-import { rulesApi } from '@shared/services/rulesApi';
+import { rulesApiServer } from '@/shared/services';
 
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 export default async function Page({ params }) {
   const { sectionSlag } = params;
-  const section = await rulesApi.getSection(sectionSlag);
+  const section = await rulesApiServer.getSection(sectionSlag);
   if (!section) return notFound();
-  // console.log(section);
 
   return (
     <div style={{ display: 'flex' }}>

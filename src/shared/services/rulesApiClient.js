@@ -1,14 +1,6 @@
-import { headers } from 'next/headers';
-
-class RulesApi {
+class RulesApiClient {
   constructor() {
     this.serverUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-  }
-
-  getServerUrl() {
-    const host = headers().get('host');
-    const protocol = host.includes('localhost') ? 'http' : 'https';
-    return `${protocol}://${host}`;
   }
 
   async fetchJson(url, options = {}) {
@@ -17,7 +9,6 @@ class RulesApi {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        ...(options.headers || {}),
       },
     });
 
@@ -28,14 +19,6 @@ class RulesApi {
     return response.json();
   }
 
-  async getTitlesOfSections() {
-    return this.fetchJson(`${this.serverUrl}/api/rules/sections-titles`);
-  }
-
-  async getSection(sectionSlag) {
-    return this.fetchJson(`${this.serverUrl}/api/rules/${sectionSlag}`);
-  }
-
   async getModalPointOfRules(sectionSlag, number) {
     return this.fetchJson(
       `${this.serverUrl}/api/rules/${sectionSlag}/${number}`,
@@ -43,4 +26,4 @@ class RulesApi {
   }
 }
 
-export const rulesApi = new RulesApi();
+export const rulesApiClient = new RulesApiClient();

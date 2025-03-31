@@ -1,5 +1,10 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
+import { rulesApiClient } from '@/shared/services/rulesApiClient';
+import { renderHTML } from '@/utils/renderHtml';
+
 const RuleInfoModal = ({
   slag,
   number,
@@ -7,6 +12,23 @@ const RuleInfoModal = ({
   modalRef,
   handleCloseModal,
 }) => {
+  const [dataModal, setDataModal] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await rulesApiClient.getModalPointOfRules(
+          slag,
+          number,
+        );
+        setDataModal(response);
+      } catch (error) {
+        console.error('Ошибка загрузки:', error);
+      }
+    }
+    fetchData();
+  }, [slag, number]);
+
   return (
     <div
       ref={modalRef}
@@ -38,14 +60,12 @@ const RuleInfoModal = ({
       >
         ❌
       </button>
-      <h2>Модалка</h2>
-      <p>Слаг: {slag}</p>
-      <p>Номер: {number}</p>
-      <p>
-        Дії або бездіяльність учасників дорожнього руху та інших осіб не повинні
-        створювати небезпеку чи перешкоду для руху, загрожувати життю або
-        здоров’ю громадян, завдавати матеріальних збитків.
-      </p>
+      {dataModal && (
+        <div>
+          <h2>{dataModal.title}</h2>
+          <p>{renderHTML(dataModal.content)}</p>
+        </div>
+      )}
     </div>
   );
 };
