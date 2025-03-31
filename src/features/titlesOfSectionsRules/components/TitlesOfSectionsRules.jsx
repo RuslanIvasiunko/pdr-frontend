@@ -1,12 +1,12 @@
 import Link from 'next/link';
-
-import { rulesApi } from '@/shared/services';
-
-import s from './styles.module.scss';
 import { notFound } from 'next/navigation';
 
+import { rulesApiServer } from '@/shared/services';
+
+import s from './styles.module.scss';
+
 export default async function TitlesOfSectionsRules() {
-  const sections = await rulesApi.getTitlesOfSections();
+  const sections = await rulesApiServer.getTitlesOfSections();
   if (!sections) return notFound();
   return (
     <div>
@@ -26,11 +26,3 @@ export default async function TitlesOfSectionsRules() {
     </div>
   );
 }
-
-// export default TitlesOfSectionsRules;
-
-// import Link from 'next/link.js';
-
-// import { apiTitlesOfSectionsRules } from '../redux/rules/operations.js';
-
-//     dispatch(apiTitlesOfSectionsRules());

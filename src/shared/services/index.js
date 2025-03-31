@@ -1,3 +1,4 @@
-export { authApi } from './authApi';
-export { rulesApi } from './rulesApi';
+export { authApi } from './authApiServer';
+export { rulesApiServer } from './rulesApiServer';
+export { rulesApiClient } from './rulesApiClient';
 export { testsApi } from './testsApi';

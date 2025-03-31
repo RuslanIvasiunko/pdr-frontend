@@ -57,7 +57,7 @@ export default function RulesLayout({ children }) {
 
       setCoords({ x, y });
     }
-  }, [modal]);
+  }, [coords]);
 
   const handleCloseModal = () => {
     setModal(null);
@@ -66,6 +66,17 @@ export default function RulesLayout({ children }) {
   };
 
   useModalClose({ modal, handleCloseModal, modalRef });
+
+  useEffect(() => {
+    if (!coords || (coords.x === 0 && coords.y === 0)) {
+      setModal(null);
+    }
+  }, [coords]);
+
+  useEffect(() => {
+    setModal(null);
+    router.replace(pathname, { scroll: false });
+  }, []);
 
   return (
     <div onClick={handleClick}>
