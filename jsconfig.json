@@ -1,11 +1,9 @@
-//
 {
   "compilerOptions": {
-    "baseUrl": "./",
-    "checkJs": false,
+    "baseUrl": "src",
     "paths": {
-      "@/*": ["./src/*"],
-      "@shared/*": ["./src/shared/*"]
+      "@/*": ["*"],
+      "@shared/*": ["shared/*"]
     }
   }
 }

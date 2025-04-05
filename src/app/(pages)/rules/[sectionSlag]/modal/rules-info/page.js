@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import { rulesApiClient } from '@/shared/services/rulesApiClient';
-import { renderHTML } from '@/utils/renderHtml';
+import renderHTML from '@/utils/renderHtml';
 
 const RuleInfoModal = ({
   slag,

@@ -1,21 +1,21 @@
-'use client';
+import { TypesOfTests } from '@/features/typesOfTests';
+import { Timer } from '@/shared/components/Timer';
+import { QuestionsOfSection } from '@/features/questionsOfSection';
+import { testsApiServer } from '@/shared/services';
 
-import { useParams } from 'next/navigation';
-
-import Timer from '../../../../components/Timer.jsx';
-import TypesOfTests from '../../../../components/TypesOfTests.jsx';
-import SectionDefaultTests from '@/app/components/SectionDefaultTests.jsx';
-
-export default function SectionPage() {
-  const { sectionSlag } = useParams();
+export default async function DefaultPage({ params }) {
+  const { sectionSlag } = params;
   const timerHeader = 'Загальний час:';
   const isActive = true;
+  const isRandom = 'false';
+
+  const sectionTests = await testsApiServer.getSectionDefaultTests(sectionSlag);
 
   return (
     <div>
       <TypesOfTests />
       <Timer timerHeader={timerHeader} isActive={isActive} />
-      <SectionDefaultTests sectionSlag={sectionSlag} />
+      <QuestionsOfSection sectionTests={sectionTests} />
     </div>
   );
 }

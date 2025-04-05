@@ -1,5 +1,4 @@
-import React from 'react';
-import TypesOfTests from '../../../components/TypesOfTests.jsx';
+import { TypesOfTests } from '@/features/typesOfTests';
 
 export default function CommonMistakesPage({}) {
   return (

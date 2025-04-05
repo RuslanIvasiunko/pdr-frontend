@@ -1,5 +1,3 @@
-// src/utils/errors.js
-
 const ERROR_KEY = 'errorTests';
 
 export const getErrors = () => {
@@ -26,14 +24,17 @@ export const saveErrors = errorsList => {
 
 export const addError = errorItem => {
   const currentErrors = getErrors();
-
-  // const isAlreadyAdded = currentErrors.some(
-  //   err => err.content.number === errorItem.content.number,
-  // );
   const isAlreadyAdded = currentErrors.some(err => err.id === errorItem.id);
 
   if (!isAlreadyAdded) {
     const updatedErrors = [...currentErrors, errorItem];
     saveErrors(updatedErrors);
   }
+};
+
+export const removeError = errorId => {
+  const currentErrors = getErrors();
+  const updatedErrors = currentErrors.filter(err => err.id !== errorId);
+
+  saveErrors(updatedErrors);
 };
