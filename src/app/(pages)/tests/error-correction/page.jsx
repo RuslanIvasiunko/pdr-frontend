@@ -1,26 +1,17 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
-import TypesOfTests from '../../../components/TypesOfTests.jsx';
-import { getErrors } from '@/utils/errors.js';
-import QuestionsOfSection from '@/app/components/QuestionsOfSection.jsx';
+import { QuestionsOfSection } from '@/features/questionsOfSection';
+import { Timer } from '@/shared/components/Timer';
+import ClientErrorCorrection from '@/shared/components/ClientErrorCorrection/ClientErrorCorrection';
+import { TypesOfTests } from '@/features/typesOfTests';
 
 export default function ErrorCorrectionPage({}) {
-  const [sectionTests, setSectionTests] = useState({});
-
-  useEffect(() => {
-    const errors = getErrors();
-    setSectionTests({
-      slag: 'section0',
-      title: 'Робота над помилками',
-      content: errors.length ? errors : [],
-    });
-  }, []);
+  const timerHeader = 'Загальний час:';
+  const isActive = true;
 
   return (
     <div>
       <TypesOfTests />
-      <QuestionsOfSection sectionTests={sectionTests} />
+      <Timer timerHeader={timerHeader} isActive={isActive} />
+      <ClientErrorCorrection />
     </div>
   );
 }

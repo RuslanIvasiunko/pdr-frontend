@@ -7,7 +7,9 @@ import s from './styles.module.scss';
 
 export default async function TitlesOfSectionsRules() {
   const sections = await rulesApiServer.getTitlesOfSections();
+
   if (!sections) return notFound();
+
   return (
     <div>
       <Link href="/rules">Зміст</Link>
@@ -16,9 +18,7 @@ export default async function TitlesOfSectionsRules() {
           sections.map(section => {
             return (
               <li key={section.slag}>
-                <Link href={`/rules/${section.slag}`}>
-                  <button>{section.title}</button>
-                </Link>
+                <Link href={`/rules/${section.slag}`}>{section.title}</Link>
               </li>
             );
           })}

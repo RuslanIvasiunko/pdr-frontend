@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 
 const SectionBySlag = async ({ section }) => {
   if (!section) return notFound();
-  // console.log('section content:', section.content);
+
   return (
     <div style={{ display: 'flex' }}>
       <div style={{ flex: 3 }}>
