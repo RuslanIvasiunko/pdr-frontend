@@ -1,7 +1,7 @@
 import Image from 'next/image.js';
 
 import { IMAGE_BASE_URL } from '../../constants/constants.js';
-import { renderHTML } from '@/utils/renderHtml.js';
+import renderHTML from '@/utils/renderHtml.js';
 
 const RuleItem = ({ item }) => {
   const imageKeys = [

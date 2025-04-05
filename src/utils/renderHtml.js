@@ -1,7 +1,7 @@
 import parse from 'html-react-parser';
 import Link from 'next/link';
 
-export const renderHTML = text => {
+const renderHTML = text => {
   return parse(text, {
     replace: domNode => {
       if (domNode.name === 'a') {
@@ -39,3 +39,5 @@ export const renderHTML = text => {
     },
   });
 };
+
+export default renderHTML;
